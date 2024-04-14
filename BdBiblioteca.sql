@@ -24,7 +24,7 @@ CREATE TABLE TBL_LIBRO(
     genero            nvarchar(20)     NULL,
     codigo            nvarchar(16)     NOT NULL,
     estado            int              NOT NULL,
-    fecha_prestado    datetime         NULL,
+    fecha_prestado    datetime2        NULL,
     id_persona        int              NULL,
     CONSTRAINT PK1 PRIMARY KEY NONCLUSTERED (id_libro)
 )
