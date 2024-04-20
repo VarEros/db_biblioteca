@@ -1,0 +1,14 @@
+USE [BdBiblioteca]
+GO
+/****** Object:  StoredProcedure [dbo].[PR_R_LIBROS]    Script Date: 19/04/2024 17:53:33 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE OR ALTER PROCEDURE [dbo].[PR_R_PRE_DEV]
+AS
+BEGIN
+  SELECT 
+	*
+  FROM VW_PRE_DEV;
+END;
