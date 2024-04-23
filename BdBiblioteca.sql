@@ -2,14 +2,10 @@
  * ER/Studio Data Architect SQL Code Generation
  * Project :      mlBiblioteca.DM1
  *
- * Date Created : Friday, April 19, 2024 17:37:41
+ * Date Created : Monday, April 22, 2024 22:27:50
  * Target DBMS : Microsoft SQL Server 2016
  */
 
-USE master
-go
-CREATE DATABASE BdBiblioteca
-go
 USE BdBiblioteca
 go
 /* 
@@ -43,10 +39,11 @@ go
  */
 
 CREATE TABLE TBL_MULTA(
-    id_multa    int    IDENTITY(1,1),
-    id_libro    int    NOT NULL,
-    monto       int    NOT NULL,
-    CONSTRAINT PK4 PRIMARY KEY NONCLUSTERED (id_multa, id_libro)
+    id_multa      int    IDENTITY(1,1),
+    id_libro      int    NOT NULL,
+    id_persona    int    NOT NULL,
+    monto         int    NOT NULL,
+    CONSTRAINT PK4 PRIMARY KEY NONCLUSTERED (id_multa, id_libro, id_persona)
 )
 go
 
@@ -69,7 +66,7 @@ CREATE TABLE TBL_PERSONA(
     apellido      nvarchar(30)    NOT NULL,
     estado        int             NOT NULL,
     CONSTRAINT PK3 PRIMARY KEY NONCLUSTERED (id_persona),
-    UNIQUE (cedula)
+    UNIQUE(cedula)
 )
 go
 
@@ -140,6 +137,11 @@ go
 ALTER TABLE TBL_MULTA ADD CONSTRAINT RefTBL_LIBRO7 
     FOREIGN KEY (id_libro)
     REFERENCES TBL_LIBRO(id_libro)
+go
+
+ALTER TABLE TBL_MULTA ADD CONSTRAINT RefTBL_PERSONA9 
+    FOREIGN KEY (id_persona)
+    REFERENCES TBL_PERSONA(id_persona)
 go
 
 
